@@ -1,5 +1,31 @@
 # workshops
-Projeto de estudos em Workshops
+Projeto de estudos em Workshops na FCamara:
+> https://www.sympla.com.br/workshop-iniciando-com-nodejs-criando-uma-api-rest-com-conexao-no-mongodb__569772
+> https://www.meetup.com/pt-BR/FCTech/events/263462249/
+
+## Passo a Passo
+- Criar o projeto
+  - npm init
+  
+- Configurar o compilador do Typescript
+  - entry point: server.ts
+
+- instalar componentes
+  - npm install -g typescript
+  - npm install typescript
+  - npm install express
+  - npm install  @types/express @types/node ts-node type -D
+
+- criar diretorio 'server'
+  - criar os seguintes arquivos:
+    - touch app.ts
+    - touch server.ts
+
+- no arquivo 'server/app.ts', vamos criar os métodos para definir as rotas
+- no arquivo 'server/server.ts', vamos configurar a inicialiação do app
+- configurar o atalho no 'package.json' o 'start' para rodar via comando 'npm start'
+  - npm start
+  - http://localhost:3000/
 
 ## instruções
 http://dontpad.com/jakeliny
@@ -35,30 +61,6 @@ http://jakeliny.com.br
 
 Configurar variável de ambiente no Windows (7 ou superior)
 
->> https://udgwebdev.com/node-js-para-leigos-instalacao-e-configuracao/
-
-## Passo a Passo
-- Criar o projeto
-  - npm init
-  
-- Configurar o compilador do Typescript
-  - entry point: server.ts
-
-- instalar componentes
-  - npm install -g typescript
-  - npm install typescript
-  - npm install express
-  - npm install  @types/express @types/node ts-node type -D
-
-- criar diretorio 'server'
-  - criar os seguintes arquivos:
-    - touch app.ts
-    - touch server.ts
-
-- no arquivo 'server/app.ts', vamos criar os métodos para definir as rotas
-- no arquivo 'server/server.ts', vamos configurar a inicialiação do app
-- configurar o atalho no 'package.json' o 'start' para rodar via comando 'npm start'
-  - npm start
-  - http://localhost:3000/
+> https://udgwebdev.com/node-js-para-leigos-instalacao-e-configuracao/
 
 
