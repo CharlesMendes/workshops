@@ -14,7 +14,9 @@ Projeto de estudos em Workshops na FCamara:
   - npm install -g typescript
   - npm install typescript
   - npm install express
+  - npm install mongoose
   - npm install  @types/express @types/node ts-node type -D
+  - npm install  @types/mongoose -D
 
 - criar diretorio 'server'
   - criar os seguintes arquivos:
@@ -26,6 +28,12 @@ Projeto de estudos em Workshops na FCamara:
 - configurar o atalho no 'package.json' o 'start' para rodar via comando 'npm start'
   - npm start
   - http://localhost:3000/
+
+- vamos configurar o MongoDB
+  - mongo ds143181.mlab.com:43181/fcamara-nodejs -u u-fcamara-nodejs -p senha123
+  - mongodb://u-fcamara-nodejs:senha123@ds143181.mlab.com:43181/fcamara-nodejs
+    - 
+
 
 ## instruções
 http://dontpad.com/jakeliny
