@@ -5,7 +5,7 @@ const CrushSchema = new mongoose.Schema({
 
     nome: { type: String, required: true },
     interesses: { type: String, required: true },
-    idade: { type: Int32, required: true },
+    idade: { type: String, required: true },
     descricao: { type: String, required: true },
     whatsapp: { type: String, required: true },
     foto: { type: String, required: true },

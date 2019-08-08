@@ -15,8 +15,10 @@ Projeto de estudos em Workshops na FCamara:
   - npm install typescript
   - npm install express
   - npm install mongoose
-  - npm install  @types/express @types/node ts-node type -D
-  - npm install  @types/mongoose -D
+  - npm install body-parser
+  - npm install @types/express @types/node ts-node type -D
+  - npm install @types/mongoose -D
+  - npm install @types/body-parser -D
 
 - criar diretorio 'server'
   - criar os seguintes arquivos:
@@ -32,14 +34,14 @@ Projeto de estudos em Workshops na FCamara:
 - vamos configurar o MongoDB
   - mongo ds143181.mlab.com:43181/fcamara-nodejs -u u-fcamara-nodejs -p senha123
   - mongodb://u-fcamara-nodejs:senha123@ds143181.mlab.com:43181/fcamara-nodejs
-    - 
+  - criar schema model
+  - realizar conexao com BD
+  - criar controller
 
 
 ## instruções
 http://dontpad.com/jakeliny
-
-wifi: fcamara2018
-FC_GUEST 
+https://httpstatusdogs.com/
 
 ### Instalação: 
 https://www.meetup.com/pt-BR/FCTech/events/263462249/
