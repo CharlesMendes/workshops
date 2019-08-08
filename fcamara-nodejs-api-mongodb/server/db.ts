@@ -10,7 +10,7 @@ class DataBase {
 
     createConnection() {
         mongoose.connect(this.url);    
-        this.connection.on('connected', () => console.log("mongoose esta conectado"));    
+        this.connection.on('connected', () => console.log("mongoose esta conectado, chupaaaa!"));    
     }
 
     closeConnection() {
