@@ -9,8 +9,8 @@ class DataBase {
     constructor() { }
 
     createConnection() {
-        mongoose.connect(this.url);    
-        this.connection.on('connected', () => console.log("mongoose esta conectado, chupaaaa!"));    
+        mongoose.connect(this.url);
+        this.connection.on('connected', () => console.log("mongoose esta conectado, chupaaaa!"));
     }
 
     closeConnection() {

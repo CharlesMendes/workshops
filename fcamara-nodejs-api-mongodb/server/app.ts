@@ -18,7 +18,7 @@ class App {
         this.database.createConnection(); // abre conexao com o BD
         this.controller = new controller(); //instancia do controller
         this.middleware();
-        
+
         this.route();
 
     }
@@ -31,8 +31,8 @@ class App {
 
     route() {
         // assim que acessarmos a url principal, irá acessar essa rota default
-        this.app.route('/').get( 
-            (req, res) => res.status(200).json({ "result": "Vai Corinthians" }) 
+        this.app.route('/').get(
+            (req, res) => res.status(200).json({ "result": "Vai Corinthians" })
         );
 
         // rotas de manipulacao ao BD Mongo

@@ -15,7 +15,7 @@ class Controller {
     }
 
     // envia os dados para o Mongo
-    createCrush(crush) {
+    private createCrush(crush) {
         return model.create(crush);
     }
 }
