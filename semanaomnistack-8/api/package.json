@@ -2,6 +2,7 @@
   "name": "api",
   "version": "1.0.0",
   "main": "index.js",
+  "description": "Projeto de estudos sobre nodeJS, ReactJS e ReactNative",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/api.js"

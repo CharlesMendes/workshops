@@ -61,7 +61,7 @@ router.post('/', function(req, res, next) {
  *       200:
  *         description: Success get all users
  */
-router.get('/', function(req, res, next) {
+router.get('/user', function(req, res, next) {
   res.json({results: users});
 });
 

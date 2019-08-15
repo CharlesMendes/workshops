@@ -27,11 +27,11 @@ router.get('/', function(req, res, next) {
 
 /**
  * @swagger
- * /2:
+ * /Teste:
  *    get:
  *      description: This should return all users
  */
-router.get('/2', (request, response) => {
+router.get('/Teste', (request, response) => {
     // query string exemplo:
     // http://localhost:3333/?name=Charles
     //return response.send(`Testando servidor API: ${request.query.name}`);
