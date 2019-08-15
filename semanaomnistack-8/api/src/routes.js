@@ -13,4 +13,6 @@ routes.post('/devs', (request, response) => {
     return response.json({ status: true, payload: request.body });
 });
 
+routes.post('/developer', DeveloperController.store);
+
 module.exports = routes;
