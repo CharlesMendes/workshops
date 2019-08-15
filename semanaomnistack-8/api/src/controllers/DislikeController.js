@@ -22,6 +22,6 @@ module.exports = {
         }
 
 
-        return response.json({ success: true, loggedDeveloper: loggedDeveloper });
+        return response.status(201).json({ success: true, loggedDeveloper: loggedDeveloper });
     }
 };

@@ -22,7 +22,7 @@ module.exports = {
             avatar
         })
         //return response.json({ status: true, username: username });
-        return response.json(developer);
+        return response.status(201).json(developer);
     },
 
     async show(request, response) {
