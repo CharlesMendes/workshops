@@ -16,7 +16,9 @@ routes.get('/', (request, response) => {
     return response.json({ success: true, payload: request.body });
 });*/
 
+routes.get('/developers/', DeveloperController.index);
 routes.get('/developers/:developerId', DeveloperController.show);
+
 routes.post('/developers', DeveloperController.store);
 routes.post('/developers/:developerId/likes', LikeController.store);
 routes.post('/developers/:developerId/dislikes', DislikeController.store);

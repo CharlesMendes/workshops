@@ -35,5 +35,30 @@ module.exports = {
         }
 
         return response.json({ success: true, developer: findDeveloper });
+    },
+
+    async index(request, response) {
+        const { user } = request.headers;
+
+        //buscar o usuario logado, a instancia no BD
+        const loggedDeveloper = await Developer.findById(user);
+
+        //se o usuario logado nao existe mais retorna um erro
+        if (!loggedDeveloper) {
+            return response.status(400).json({ success: false, message: 'Developer not exists' });
+        }
+
+        //busca todos os usuarios existentes no BD, filtrando por usuarios que
+        //nao sao usuario q esta logado, nem usuarios que foi dado like nem
+        //usuario que deu dislike
+        const users = await Developer.find({
+            $and: [
+                { _id: { $ne: user } }, //ignora o usuario que ja esta logado
+                { _id: { $nin: loggedDeveloper.likes } }, //ignora os usuarios que foram marcados como likes
+                { _id: { $nin: loggedDeveloper.dislikes } } //ignora usuarios que foram marcados com dislikes
+            ]
+        });
+
+        return response.json({ success: true, developers: users });
     }
 }
