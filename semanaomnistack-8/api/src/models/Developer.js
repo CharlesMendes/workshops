@@ -1,5 +1,23 @@
 const { Schema, model} = require('mongoose');
 
+/**
+ * @swagger
+ * definition:
+ *   Developer:
+ *     properties:
+ *       name:
+ *         type: string
+ *       user:
+ *         type: string
+ *       bio:
+ *         type: string
+ *       avatar:
+ *         type: string
+ *       likes:
+ *         type: array
+ *       dislikes:
+ *         type: array
+ */
 const DeveloperSchema = new Schema({
     name: { type: String, required: true },
     user: { type: String, required: true },
