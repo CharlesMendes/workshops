@@ -13,10 +13,13 @@ const api = express();
 
 //const PORT = process.env.PORT || 3000;
 const PORT = 3333;
+const versionNumberAPI = '/api/v1';
 
+// >>>> Mongoose start here
 mongoose.connect('mongodb+srv://omnistack:1234@cluster-learning-pbleq.gcp.mongodb.net/db-omnistack8?retryWrites=true&w=majority', {
     useNewUrlParser: true
 });
+// <<<< Mongoose end here
 
 api.use(cors());
 
@@ -31,10 +34,10 @@ api.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec)); //http://editor
 api.use(express.json());
 
 // >>>> Routes start here
-api.use(routesDeveloper);
-api.use(routesGithub);
-api.use(routesIndex);
-api.use(routesUser);
+api.use(versionNumberAPI, routesDeveloper);
+api.use(versionNumberAPI, routesGithub);
+api.use(versionNumberAPI, routesIndex);
+api.use(versionNumberAPI, routesUser);
 // <<<< Routes end here
 
 // Start the server

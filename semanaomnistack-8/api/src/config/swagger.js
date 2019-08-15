@@ -16,6 +16,14 @@ const swaggerOptions = {
       version,
       title: 'API Omnistack 8',
     },
+    securityDefinitions: {
+        bearerAuth: {
+          type: 'apiKey',
+          name: 'Authorization',
+          scheme: 'bearer',
+          in: 'header',
+        },
+    },
     host: `localhost:${PORT}`,
     basePath: '/',
     produces: ['application/json'],
