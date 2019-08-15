@@ -1,5 +1,3 @@
-'use strict';
-
 const swaggerJSDoc = require('swagger-jsdoc');
 
 const { description, version } = require('../../package');
@@ -25,7 +23,7 @@ const swaggerOptions = {
       'https',
     ],
   },
-  apis: ['../routes/*', '../controllers/*', '../models/*'],
+  apis: ['./routes/*.js', './controllers/*.js', './models/*.js']
 };
 
 module.exports = {

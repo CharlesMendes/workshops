@@ -20,26 +20,22 @@ mongoose.connect('mongodb+srv://omnistack:1234@cluster-learning-pbleq.gcp.mongod
 
 api.use(cors());
 
-//console.log(swaggerOptions);
-
-const swaggerSpecOptions = {
-    explorer: true,
-};
-
-api.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec, swaggerSpecOptions)); //http://editor.swagger.io/
-
-// Serve swagger docs the way you like (Recommendation: swagger-tools)
+// >>>> Swagger start here
 api.get('/docs.json', (request, response) => {
     response.setHeader('Content-Type', 'application/json');
-    response.status(200).json(swaggerSpec);
+    response.status(200).send(swaggerSpec);
 });
+api.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec)); //http://editor.swagger.io/
+// <<<< Swagger end here
 
 api.use(express.json());
 
+// >>>> Routes start here
 api.use(routesDeveloper);
 api.use(routesGithub);
 api.use(routesIndex);
 api.use(routesUser);
+// <<<< Routes end here
 
 // Start the server
 const server = api.listen(PORT, () => {
