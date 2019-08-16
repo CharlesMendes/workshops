@@ -25,7 +25,7 @@ const swaggerOptions = {
         },
     },
     host: `localhost:${PORT}`,
-    basePath: '/',
+    basePath: '/api/v1',
     produces: ['application/json'],
     schemes: [
       'https',
