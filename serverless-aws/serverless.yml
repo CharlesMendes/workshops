@@ -15,7 +15,7 @@ provider:
 
 functions:
   optimize:
-    handler: optimize.handle
+    handler: optimize.execute
     environment:
       bucket: charlesmendes-serverless-aws #nome do bucket que iremos utilizar
     events:
