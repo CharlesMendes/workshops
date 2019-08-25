@@ -1,5 +1,5 @@
 {
-  "name": "nodeless",
+  "name": "nodeless-aws",
   "version": "1.0.0",
   "main": "optimize.js",
   "dependencies": {

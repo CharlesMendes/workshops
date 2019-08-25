@@ -1,4 +1,4 @@
-service: nodeless
+service: nodeless-aws
 
 provider:
   name: aws
@@ -17,16 +17,16 @@ functions:
   optimize:
     handler: optimize.handle
     environment:
-      bucket: charlesmendes-serverless #nome do bucket que iremos utilizar
+      bucket: charlesmendes-serverless-aws #nome do bucket que iremos utilizar
     events:
       - s3:
-          bucket: charlesmendes-serverless
+          bucket: charlesmendes-serverless-aws
           event: s3:ObjectCreated:*
           rules:
             - prefix: uploads/ #dispara apenas para arquivos de imagem
             - suffix: .jpg
       - s3:
-          bucket: charlesmendes-serverless
+          bucket: charlesmendes-serverless-aws
           event: s3:ObjectCreated:*
           rules:
             - prefix: uploads/ #dispara apenas para arquivos de imagem
