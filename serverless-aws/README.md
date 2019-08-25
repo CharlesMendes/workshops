@@ -250,7 +250,7 @@ Aqui são gerados os logs para cada invocação realizada
 - Senão existir, crie a pasta `uploads`
 - Carregue uma imagem dentro da pasta upload (nessa versão do codigo, a imagem nao pode ter espaços)
 - Abaixo, o log após realizar o upload da imagem, a app criou a pasta `compressed` automaticamente e gravou a nova imagem otimizada nesse diretório em apenas 1279.43ms (1.3 segs) consumindo 132MB, `ótimo desempenho S2` a imagem original `tinha 246.6 para 60.6KB`
-```js
+```
 START RequestId: 0192af5e-da85-4ca5-9b27-8e9867e91589 Version: $LATEST
 2019-08-25T16:54:07.859Z	0192af5e-da85-4ca5-9b27-8e9867e91589	INFO	{ eventVersion: '2.1',
 eventSource: 'aws:s3',
