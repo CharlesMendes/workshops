@@ -1,0 +1,8 @@
+{
+  "name": "nodejs-gcp",
+  "version": "1.0.0",
+  "description": "Testes com Google Cloud Functions usando node.js",
+  "main": "app.js",
+  "author": "CharlesMendes",
+  "license": "MIT"
+}
