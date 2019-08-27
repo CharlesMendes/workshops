@@ -34,8 +34,8 @@ renomear nome da function de 'helloWorld' para 'execute'
 Depois de alguns minutos, a function será criada
 
 ## Testando a primeira function
-Clique nos 3 (...) ao selecionar a function `function-github` > Testar Função
-> https://us-central1-nodejs-functions.cloudfunctions.net/function-github
+Clique nos 3 (...) ao selecionar a function `func-teste-console` > Testar Função
+> https://us-central1-nodejs-functions.cloudfunctions.net/func-teste-console
 
 Será exibido o retorno da chamada da nossa function exposta via API
 
@@ -78,3 +78,13 @@ module.exports.execute = (request, response) => {
   }
 };
 ```
+### Deploy
+Vamos criar uma nova function, mas agora via `cli`, com a seguinte linha de comando informando o nome da function que iremos criar e o que foi definido no exports:
+> gcloud functions deploy 'func-teste-cli' --runtime nodejs8 \
+> -> --trigger-http --entry-point=execute
+
+Será criado o endpoint após o deploy:
+> https://us-central1-nodejs-functions.cloudfunctions.net/func-teste-cli
+
+Pode testar no terminal via:
+> curl https://us-central1-nodejs-functions.cloudfunctions.net/func-teste-cli
