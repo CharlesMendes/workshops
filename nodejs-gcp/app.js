@@ -3,7 +3,14 @@
 module.exports.execute = (request, response) => {
   try {
 
-    const mensagem = 'teste gcp function - charlesmendes';
+    const mensagem = {
+      statusCode: 200,
+      body: {
+        success: true,
+        message: 'teste gcp function - charlesmendes'
+      }
+    };
+
     response.status(200).send(mensagem);
 
   } catch (error) {
