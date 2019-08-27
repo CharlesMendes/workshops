@@ -12,7 +12,7 @@
     "postdeploy": "rm -rf node_modules/sharp && npm install sharp"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "author": "CharlesMendes",
+  "license": "MIT",
+  "description": "Testes usando serverless com node.js na AWS Lambda"
 }
