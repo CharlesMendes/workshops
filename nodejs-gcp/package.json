@@ -4,5 +4,8 @@
   "description": "Testes com Google Cloud Functions usando node.js",
   "main": "app.js",
   "author": "CharlesMendes",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
 }

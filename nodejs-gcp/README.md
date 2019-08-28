@@ -78,6 +78,7 @@ module.exports.execute = (request, response) => {
   }
 };
 ```
+
 ### Deploy
 Vamos criar uma nova function, mas agora via `cli`, com a seguinte linha de comando informando o nome da function que iremos criar e o que foi definido no exports:
 > gcloud functions deploy 'func-teste-cli' --runtime nodejs8 \
@@ -88,3 +89,86 @@ Será criado o endpoint após o deploy:
 
 Pode testar no terminal via:
 > curl https://us-central1-nodejs-functions.cloudfunctions.net/func-teste-cli
+
+# Criando a função `github`
+## Criando a função
+### Estrutura básica
+Criaremos uma função, que irá retornar a imagem de perfil de um usuário informado na query string, do github. Crie a seguinte function no arquivo `app.js`:
+
+```js
+'use strict';
+
+// function que acessa api do github
+const fetch = require('node-fetch');
+
+function getUrlForUser(username) {
+  return `https://api.github.com/users/${username}`
+}
+
+// iremos utilizar async/await devido a requisição da api
+module.exports.execute = async (request, response) => {
+
+  try {
+    //atribui um username default, caso não seja informado na querystring
+    const username = request.query.username || 'charlesmendes';
+    const responseApi = await fetch(getUrlForUser(username));
+    const responseObject = await responseApi.json()
+    const avatarUrl = responseObject.avatar_url;
+
+    response.redirect(avatarUrl); //redireciona para a url informada
+
+  } catch (error) {
+
+    const mensagem = {
+      statusCode: 500,
+      body: {
+        result: {
+          success: false,
+          message: error.message
+        }
+      }
+    };
+
+    response.status(500).send(mensagem);
+
+  }
+};
+```
+
+### Deploy
+Vamos criar uma nova function, mas agora via `cli`, com a seguinte linha de comando informando o nome da function que iremos criar e o que foi definido no exports:
+> gcloud functions deploy 'func-teste-github' --runtime nodejs8 \
+> -> --trigger-http --entry-point=execute
+
+Será criado o endpoint após o deploy:
+> https://us-central1-nodejs-functions.cloudfunctions.net/func-teste-github
+
+Pode testar no terminal via:
+> curl https://us-central1-nodejs-functions.cloudfunctions.net/func-teste-github
+> curl https://us-central1-nodejs-functions.cloudfunctions.net/func-teste-github?username=jsoverson
+
+# Cloud Scheduler (CronJobs)
+## Comandos GCP
+> gcloud functions event-types list
+
+## Criando um Job
+É possível agendar execuções de functions, basta acessar o Cloud Scheduler:
+> https://console.cloud.google.com/cloudscheduler
+
+Clicar em `Criar Job`, defina a região, e a frequencia de execução ex: `09**1` (toda segunda as 9h00), vide abaixo link explicando os parametros do cron:
+> https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules?hl=pt_BR&_ga=2.109488133.-1804069006.1566610188&_gac=1.204694948.1566870769.EAIaIQobChMIl5jdsfih5AIVCwuRCh1bzgPwEAAYASAAEgIGhPD_BwE#defining_the_job_schedule
+
+Em seguida, vamos criar uma nova function pelo console `func-teste-cron` atribuindo o acionador como `Cloud Pub/Sub` e criar um novo tópico `teste-topic`
+
+```js
+/**
+ * Triggered from a message on a Cloud Pub/Sub topic.
+ *
+ * @param {!Object} event Event payload.
+ * @param {!Object} context Metadata for the event.
+ */
+exports.helloPubSub = (event, context) => {
+  const pubsubMessage = event.data;
+  console.log(Buffer.from(pubsubMessage, 'base64').toString());
+};
+```
